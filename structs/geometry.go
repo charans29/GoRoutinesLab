@@ -1,24 +1,24 @@
 package main
 
-func Perimeter(width float64, height float64) float64 {
-	 pm := 2 * (width + height)
-     return pm
-}
-
-func Area(width float64, height float64) float64 {
-	 ar := width * height
-	 return ar
-}
+import "math"
 
 type Rectangle struct {
 	Width  float64
 	Height float64
 }
 
-func Perimtr(rectangle Rectangle) float64 {
-	return 2 * (rectangle.Width + rectangle.Height)
+type Circle struct {
+	radius float64
 }
 
-func Ar(rectangle Rectangle) float64 {
-	return rectangle.Width * rectangle.Height
+type Shape interface {
+	Area() float64
+}
+
+func (r Rectangle) Area() float64 {
+	return r.Width * r.Height
+}
+
+func (c Circle) Area() float64 {
+	return math.Pi * c.radius * c.radius
 }
